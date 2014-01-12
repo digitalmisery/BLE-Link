@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+	<service uuid="1800">
+      <description>Generic Access Profile</description>
+ 
+	  <!-- Device Name -->                                        
+	  <!-- org.bluetooth.characteristic.gap.device_name -->
+      <characteristic uuid="2a00" id="xgatt_device_name">
+        <properties read="true" />
+        <value>01234567890123456789</value>
+      </characteristic>
+
+	  <!-- Appearance -->
+	  <!-- org.bluetooth.characteristic.gap.appearance -->
+      <characteristic uuid="2a01">
+        <!-- 128: Generic Computer, Generic category -->
+        <properties read="true" const="true" />
+        <value type="hex">0080</value>
+      </characteristic>
+    </service>
+
+    <service uuid="180A">
+      <description>Device Information</description>
+
+	  <!-- Manufacturer Name String -->
+	  <!-- org.bluetooth.characteristic.manufacturer_name_string -->
+      <characteristic uuid="2a29">
+        <properties read="true" const="true" />
+        <value>www.digitalmisery.com</value>
+		<description>Manufacturer Name String</description>
+      </characteristic>
+	  
+	  <!-- Model Number String -->
+	  <!-- org.bluetooth.characteristic.model_number_string -->
+	  <characteristic uuid="2a24">
+        <properties read="true" const="true" />
+        <value>BLE Link</value>
+		<description>Model Number String</description>
+      </characteristic>
+
+	  <!-- Firmware Revision String -->
+	  <!-- org.bluetooth.characteristic.firmware_revision_string -->
+	  <characteristic uuid="2a26">
+        <properties read="true" const="true" />
+        <value>1.0</value>
+		<description>Firmware Revision String</description>
+      </characteristic>
+	  
+	  <!-- Hardware Revision String -->
+	  <!-- org.bluetooth.characteristic.hardware_revision_string -->
+	  <characteristic uuid="2a27">
+        <properties read="true" const="true" />
+        <value>1.0</value>
+		<description>Hardware Revision String</description>
+      </characteristic>   
+    </service>
+	
+	<service uuid="0b2cc436-4e75-46a2-a1a1-375b269774af" advertise="true">
+        <description>BLE Link Service</description>
+       
+	   <characteristic uuid="fb53507d-797d-4b9d-8cd3-28f5e0b81c61" id="xgatt_bdaddr">
+            <properties read="true" />
+            <value type="hex">001122334455</value>
+			<description>Bluetooth Address</description>
+        </characteristic>
+		
+		<characteristic uuid="7bdc5232-2363-4cf7-b76b-9deed0b94dd9" id="xgatt_baudrate">
+            <properties read="true" write="true"/>
+            <value type="hex">0</value>
+			<description>Baudrate</description>
+        </characteristic>
+		
+		<characteristic uuid="15079C1B-F22C-4EA8-A183-AAD62372DC14" id="xgatt_con_led">
+            <properties read="true" write="true"/>
+            <value type="hex">0</value>
+			<description>Enable Connect LED</description>
+        </characteristic>
+		
+		<characteristic uuid="7f8edc33-3534-4db8-b538-e52ef5e123e7" id="xgatt_con_pin">
+            <properties read="true" write="true"/>
+            <value type="hex">0</value>
+			<description>Enable Connect Pin</description>
+        </characteristic>
+		
+		<characteristic uuid="A1E8F5B1-696B-4E4C-87C6-69DFE0B0093B" id="xgatt_rx">
+            <properties read="true" notify="true"/>
+			<value length="20" value="hex" variable_length="true"></value>
+			<description>RX</description>
+        </characteristic>
+		
+		<characteristic uuid="1494440E-9A58-4CC0-81E4-DDEA7F74F623" id="xgatt_tx">
+            <properties read="true" write="true" write_no_response="true"/>
+			<value length="20" value="hex" variable_length="true"></value>
+			<description>TX</description>
+        </characteristic>			
+		
+    </service>
+
+</configuration>
